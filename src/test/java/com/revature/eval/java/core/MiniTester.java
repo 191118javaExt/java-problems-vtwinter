@@ -7,6 +7,7 @@ public class MiniTester {
 		System.out.println(reverse("Robot, ramen ramadan"));
 		System.out.println(acronym("GMU Image Manipulator Processor"));
 		System.out.println(acronym("Complementary metal-oxide semiconductor"));
+		//System.out.println(getScrabbleScore("cabbage"));
 	}
 	
 	public static String reverse(String string) {
@@ -42,4 +43,40 @@ public class MiniTester {
 		return superfinalproduct;
 	}
 
+/**	public static int getScrabbleScore(String string) {
+		int mylength = string.length();		
+		int myscore = 0;
+		String mystring = new String(string.toUpperCase());
+		for (int i = 0; i < mylength; i++) {
+			
+			char mycharacter = mystring.charAt(i);
+
+			if (Character.compare(mycharacter,('A' | 'E' | 'I' | 'O' | 'U' | 'L' | 'N' | 'R' | 'S' | 'T')) == true); {
+				myscore = myscore + 1;
+			}
+			if (mycharacter == ('D' | 'G')) {
+				myscore = myscore + 2;
+			}
+			if (mycharacter == ('B' | 'C' | 'M' | 'P') ) {
+				myscore = myscore + 3;
+			}
+			if (mycharacter == ('F' | 'H' | 'V' | 'W' | 'Y')) {
+				myscore = myscore + 4;	
+			}
+			if (mycharacter == 'K') {
+				myscore = myscore + 5;
+			}
+			if (mycharacter == ('J' | 'X') ) {
+				myscore = myscore + 8;
+			}
+			if (mycharacter == ('Q' | 'Z')) {
+				myscore = myscore + 10;
+			}
+			else {
+				System.out.println("if you got here you FUCKED up");
+			}
+		}
+	return myscore;
+	}**/
 }
+

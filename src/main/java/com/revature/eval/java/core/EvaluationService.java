@@ -15,7 +15,6 @@ public class EvaluationService {
 	 */
 	
 	public String reverse(String string) {
-		
 		if (string == "") {
 			return("");
 		}
@@ -62,7 +61,7 @@ public class EvaluationService {
 	 * equilateral triangle has all three sides the same length. An isosceles
 	 * triangle has at least two sides the same length. (It is sometimes specified
 	 * as having exactly two sides the same length, but for the purposes of this
-	 * exercise we'll say at least two.) A scalene triangle has all sides of
+	 * exercise we'll say at LEAST two.) A scalene triangle has all sides of
 	 * different lengths.
 	 *
 	 */
@@ -107,18 +106,40 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			double thirdside = this.getSideThree();
+			double secondside = this.getSideTwo();
+			double firstside = this.getSideOne();
+			if (thirdside == secondside && secondside == firstside) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			// either two OR three equal sides
+			double thirdside = this.getSideThree();
+			double secondside = this.getSideTwo();
+			double firstside = this.getSideOne();
+			if (thirdside == secondside || thirdside == firstside || firstside == secondside) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			double thirdside = this.getSideThree();
+			double secondside = this.getSideTwo();
+			double firstside = this.getSideOne();
+			if (thirdside != secondside && thirdside != firstside && firstside != secondside) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 	}
@@ -139,8 +160,38 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		int mylength = string.length();
+		int myscore = 0;
+		String mystring = new String(string.toUpperCase());
+		for (int i = 0; i < mylength; i++) {
+			char c = mystring.charAt(i);
+			if (c == ('A' | 'E' | 'I' | 'O' | 'U' | 'L' | 'N' | 'R' | 'S' | 'T')); {
+				myscore = myscore + 1;
+			}
+			if (c == ('D' | 'G')) {
+				myscore = myscore + 2;
+			}
+			if (c == ('B' | 'C' | 'M' | 'P') ) {
+				myscore = myscore + 3;
+			}
+			if (c == ('F' | 'H' | 'V' | 'W' | 'Y')) {
+				myscore = myscore + 4;	
+			}
+			if (c == 'K') {
+				myscore = myscore + 5;
+			}
+			if (c == ('J' | 'X') ) {
+				myscore = myscore + 8;
+			}
+			if (c == ('Q' | 'Z')) {
+				myscore = myscore + 10;
+			}
+			else {
+				return 0;
+			}
+		}
+		
+		return myscore;
 	}
 
 	/**
