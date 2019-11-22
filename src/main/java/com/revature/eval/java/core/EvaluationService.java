@@ -13,9 +13,23 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+	
 	public String reverse(String string) {
 		
-		return "";
+		if (string == "") {
+			return("");
+		}
+		
+		else {
+			int counter = 0;
+			char[] mychararray = new char[string.length()];
+			for (int i = string.length()-1; i >= 0; i--) {
+				mychararray[counter] = string.charAt(i); 
+				counter++;
+			}
+			String backwardsstring = new String(mychararray);
+			return backwardsstring;
+		}
 	}
 
 	/**
@@ -27,9 +41,21 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		String[] wordsonly = phrase.split(" |-");
+		char[] myacronym = new char[wordsonly.length];
+		for (int i = 0; i < wordsonly.length; i++) {
+			String thiswordhere = new String(wordsonly[i]);
+			char whatiwant = thiswordhere.charAt(0);
+			for (int j = 0; j < myacronym.length; j++) {
+				myacronym[i] = whatiwant;
+			}
+		}
+		String finalproduct = new String(myacronym);
+		String superfinalproduct = new String(finalproduct.toUpperCase());
+		return superfinalproduct;
 	}
+
 
 	/**
 	 * 3. Determine if a triangle is equilateral, isosceles, or scalene. An
